@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Step Up Fest – Ular Tangga Entrepreneur</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#120a2e;--bg2:#2a1260;--card:#221447;--ink:#fff7e6;--mut:#b7a8e6;--gold:#ffd36e;--ok:#3ddc97;--no:#ff5d73;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:'Fredoka','Trebuchet MS',system-ui,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 20% 0,#4b2a9a 0,transparent 55%),radial-gradient(ellipse at 90% 100%,#7a2a8a 0,transparent 50%),var(--bg);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(2px 2px at 10% 20%,#fff,transparent),radial-gradient(2px 2px at 70% 12%,#ffe9a8,transparent),radial-gradient(1.5px 1.5px at 40% 70%,#fff,transparent),radial-gradient(2px 2px at 88% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 25% 90%,#ffe9a8,transparent);opacity:.8}
+header{display:flex;align-items:center;gap:12px;padding:10px 18px;flex-wrap:wrap;position:relative}
+h1{margin:0;font-size:clamp(20px,3vw,32px);letter-spacing:.5px;text-shadow:0 3px 0 #5a2bb0,0 0 24px #a874ff}
+h1 small{display:block;font-size:.5em;color:var(--gold);font-weight:400}
+.sp{flex:1}
+button{font:inherit;font-weight:600;border:0;border-radius:14px;padding:10px 16px;color:#2a1260;background:linear-gradient(#ffe38f,#ffb938);box-shadow:0 4px 0 #b9741a;cursor:pointer}
+button:active{transform:translateY(3px);box-shadow:0 1px 0 #b9741a}
+button.g{background:#3a2a74;color:var(--ink);box-shadow:0 4px 0 #1c1040}
+button.on{background:linear-gradient(#7af0b8,#2fc27f);box-shadow:0 4px 0 #17724a}
+:focus-visible{outline:3px solid #fff;outline-offset:2px}
+main{display:grid;grid-template-columns:1fr 330px;gap:14px;padding:0 14px 14px;position:relative}
+.stage{perspective:1500px;display:grid;place-items:center;min-height:60vh;padding:10px 0 30px;overflow:hidden}
+#board{position:relative;width:min(100%,104vh);aspect-ratio:1;transform-style:preserve-3d;transform:rotateX(48deg);display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(10,1fr);gap:3px;padding:8px;border-radius:18px;background:linear-gradient(135deg,#7b4bd6,#3b1d85);box-shadow:0 16px 0 #1a0c42,0 40px 70px #000a,0 0 60px #8a5cff66;margin-top:-4%}
+.t{position:relative;border-radius:8px;display:flex;align-items:flex-start;justify-content:flex-start;padding:2px 4px;font-size:1em;font-weight:700;color:#ffffffa8;background:#5d3bb0;box-shadow:inset 0 -3px 0 #0003}
+.t.b{background:#6c48c8}
+.t.l{background:linear-gradient(#e9b949,#b8841f);color:#4a2d00}
+.t.s{background:linear-gradient(#a8386b,#6d1f4b)}
+.t.e{background:linear-gradient(#ffd36e,#ff8a3d);color:#4a2d00}
+.t i{position:absolute;right:3px;bottom:1px;font-style:normal;font-size:1.5em;filter:drop-shadow(0 2px 2px #0006)}
+svg.ov{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);pointer-events:none;overflow:visible}
+.rail{stroke:#ffd36e;stroke-width:.8;stroke-linecap:round}.rung{stroke:#c98b2a;stroke-width:.7;stroke-linecap:round}
+.tok{position:absolute;width:0;height:0;transform-style:preserve-3d;transition:left .17s linear,top .17s linear}
+.slow .tok{transition:left 1s ease-in-out,top 1s ease-in-out}
+.tok::after{content:"";position:absolute;left:-.9em;top:-.25em;width:1.8em;height:.6em;border-radius:50%;background:#0006}
+.tok i{position:absolute;left:-.95em;bottom:0;width:1.9em;height:1.9em;border-radius:50%;transform-origin:50% 100%;transform:rotateX(-48deg);background:radial-gradient(circle at 35% 28%,#fffc,transparent 45%),hsl(var(--h) 90% 58%/.68);border:1.5px solid #ffffffb0;display:grid;place-items:center;font-style:normal;font-size:.72em;font-weight:700;color:#fff;text-shadow:0 1px 2px #000a}
+.tok.cur{z-index:5}
+.tok.cur i{width:2.6em;height:2.6em;left:-1.3em;font-size:.9em;background:radial-gradient(circle at 35% 28%,#fffd,transparent 45%),hsl(var(--h) 95% 55%);box-shadow:0 0 18px 4px hsl(var(--h) 100% 65%);animation:hop .6s ease-in-out infinite alternate}
+.tok.cur i::before{content:attr(data-n);position:absolute;bottom:115%;white-space:nowrap;background:#000b;padding:1px 8px;border-radius:10px;font-size:.9em}
+@keyframes hop{to{transform:rotateX(-48deg) translateY(-.8em)}}
+aside{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:2px solid #5b3fb0;border-radius:18px;padding:12px 14px;box-shadow:0 5px 0 #0005}
+.card h3{margin:0 0 8px;font-size:1.05rem;color:var(--gold)}
+#turn b{font-size:1.3rem}
+#lb{list-style:none;margin:0;padding:0;max-height:52vh;overflow:auto}
+#lb li{display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:10px;font-size:.95rem}
+#lb li:nth-child(-n+5){background:#3b2a78;font-weight:600;font-size:1.05rem;margin-bottom:3px}
+#lb li span.n{width:28px;text-align:center}
+#lb li em{margin-left:auto;font-style:normal;color:var(--mut)}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:hsl(var(--h) 90% 58%);border:1.5px solid #fff9;flex:none}
+#modal{position:fixed;inset:0;display:none;place-items:center;background:#0a0420d9;z-index:50;padding:16px}
+#modal.on{display:grid}
+#box{width:min(640px,100%);max-height:94vh;overflow:auto;background:linear-gradient(#2d1a66,#1d0f45);border:3px solid var(--gold);border-radius:24px;padding:22px;text-align:center;box-shadow:0 0 60px #a874ff88;animation:pop .3s}
+#box.inv{border-color:#ffd36e;box-shadow:0 0 70px #ffd36eaa}#box.snk{border-color:#ff5d9e;box-shadow:0 0 70px #ff3d7f88}
+@keyframes pop{from{transform:scale(.85);opacity:0}}
+#box h2{margin:6px 0;font-size:1.5rem}#box p{margin:4px 0 10px;color:var(--mut)}#box h3{margin:10px 0 14px;font-size:1.3rem;line-height:1.3}
+.who{display:inline-flex;gap:8px;align-items:center;background:#0006;padding:4px 14px;border-radius:20px}
+.opts{display:grid;gap:10px}
+.opts button{background:#3a2a74;color:var(--ink);box-shadow:0 4px 0 #1c1040;text-align:left;padding:12px 16px;font-size:1.02rem}
+.opts button:hover{background:#4d3894}
+.opts button.ok{background:var(--ok);color:#06331f;box-shadow:0 4px 0 #15774d}.opts button.no{background:var(--no);color:#fff;box-shadow:0 4px 0 #8c1c2c}
+.bar{height:8px;border-radius:6px;background:#0006;margin-top:16px;overflow:hidden}.bar b{display:block;height:100%;background:linear-gradient(90deg,var(--ok),var(--gold),var(--no));animation:tm 20s linear forwards;transform-origin:left}
+@keyframes tm{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.big{font-size:7rem;line-height:1.1;margin:10px}
+textarea{width:100%;height:150px;border-radius:12px;border:2px solid #5b3fb0;background:#120a2e;color:var(--ink);padding:10px;font:inherit;resize:vertical}
+ol.pod{text-align:left;font-size:1.2rem;line-height:1.9;padding-left:0;list-style:none}
+#toast{position:fixed;left:50%;bottom:6%;transform:translate(-50%,30px);opacity:0;pointer-events:none;z-index:60;background:#000d;border:2px solid var(--gold);padding:12px 22px;border-radius:30px;font-size:1.25rem;font-weight:600;text-align:center;max-width:92vw;transition:.25s}
+#toast.on{opacity:1;transform:translate(-50%,0)}#toast.good{border-color:var(--ok)}#toast.bad{border-color:var(--no)}
+@media(max-width:900px){main{grid-template-columns:1fr}#lb{max-height:34vh}}
+@media(prefers-reduced-motion:reduce){.tok.cur i{animation:none}#box{animation:none}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-height:24vh;overflow:auto;margin-bottom:14px}.chips span{background:#3a2a74;padding:3px 10px;border-radius:14px;font-size:.9rem}
+input{width:100%;max-width:340px;border-radius:12px;border:2px solid #5b3fb0;background:#120a2e;color:var(--ink);padding:10px;font:inherit;text-align:center}
+.tok.me i{outline:2px solid var(--gold)}.opts button.sel{outline:3px solid var(--gold)}body.isplayer .host{display:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏰 Step Up Fest<small>Ular Tangga Entrepreneur – kejar kastil Unicorn!</small></h1>
+  <div class="sp"></div>
+  <button class="g host" id="bSkip">⏭ Lewati</button>
+  <button class="g host" id="bEnd">🏁 Akhiri</button>
+  <button class="g host" id="bReset">🔄 Room baru</button>
+</header>
+<main>
+  <section class="stage"><div id="board"></div></section>
+  <aside>
+    <div class="card" id="turn">Menunggu game dimulai…</div>
+    <div class="card"><h3>🏆 Peringkat (5 teratas disorot)</h3><ol id="lb"></ol></div>
+  </aside>
+</main>
+<div id="modal"><div id="box"></div></div>
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const LAD={4:25,13:46,33:49,42:63,50:69,62:81,74:92},SNK={27:5,40:3,43:18,54:31,66:45,76:58,89:53,97:79};
+const N=[
+["Langkah awal paling tepat sebelum membuat produk?","Riset masalah calon pelanggan","Produksi massal dulu","Sewa kantor mewah","Cetak 1000 kartu nama"],
+["Apa itu MVP (Minimum Viable Product)?","Versi paling sederhana untuk diuji ke pasar","Produk dengan fitur terlengkap","Produk termurah di pasar","Merek pemenang penghargaan"],
+["Cash flow bisnis adalah…","Arus uang masuk dan keluar","Total aset perusahaan","Jumlah karyawan","Harga jual produk"],
+["Apa fungsi value proposition?","Menjelaskan nilai unik bagi pelanggan","Menghitung pajak","Mengatur jadwal kerja","Menentukan warna logo"],
+["Target pasar sebaiknya…","Spesifik dan jelas segmennya","“Semua orang”","Hanya teman dekat","Tidak perlu ditentukan"],
+["Apa arti BEP (Break Even Point)?","Titik pendapatan sama dengan biaya","Keuntungan maksimal","Rugi terbesar","Harga tertinggi"],
+["Pelanggan komplain. Sikap terbaik?","Dengarkan, minta maaf, cari solusi","Abaikan saja","Blokir akunnya","Debat di kolom komentar"],
+["Apa itu pivot dalam startup?","Mengubah strategi berdasarkan pembelajaran","Menutup bisnis","Memecat tim","Menaikkan harga"],
+["Modal awal terbatas, strategi paling bijak?","Mulai kecil, uji, lalu skala","Berutang sebesar mungkin","Menunggu modal sempurna","Meniru semua pesaing"],
+["Profit sama dengan…","Pendapatan − Biaya","Pendapatan + Biaya","Biaya ÷ Pendapatan","Modal × Harga"],
+["Brand yang kuat dibangun dari…","Konsistensi nilai dan pengalaman pelanggan","Diskon terus-menerus","Logo paling ramai","Iklan sekali saja"],
+["Memisahkan keuangan pribadi dan bisnis itu…","Penting agar keuangan sehat dan jelas","Tidak perlu","Hanya untuk perusahaan besar","Merepotkan, hindari"],
+["Apa itu networking?","Membangun relasi yang saling menguntungkan","Memasang WiFi kantor","Menjual ke teman saja","Mengumpulkan followers palsu"],
+["Mana yang termasuk biaya tetap?","Sewa tempat usaha","Bahan baku per produk","Komisi penjualan","Ongkir pesanan"],
+["Cara terbaik validasi ide bisnis?","Tes ke calon pelanggan nyata","Tanya diri sendiri saja","Percaya firasat","Tunggu tren berlalu"],
+["Apa itu repeat order?","Pelanggan membeli kembali","Produk dikembalikan","Stok kosong","Pesanan dibatalkan"],
+["Kegagalan dalam bisnis sebaiknya dipandang sebagai…","Bahan belajar untuk bertumbuh","Akhir segalanya","Aib yang disembunyikan","Salah orang lain"],
+["Kenapa tim yang solid penting?","Keahlian beragam saling melengkapi","Supaya bagi-bagi gaji","Agar tidak perlu rapat","Biar kantor ramai"],
+["Pemasaran digital efektif dimulai dari…","Memahami audiens dan kanalnya","Posting acak tiap jam","Beli followers","Meniru iklan pesaing persis"],
+["Harga produk sebaiknya ditentukan dengan…","Hitung biaya, nilai, dan pasar","Asal murah","Asal mahal","Ikut harga terendah"],
+["Inovasi berarti…","Menciptakan solusi baru yang bernilai","Menyalin produk sukses","Mengganti kemasan saja","Menunda peluncuran"]];
+const I=[
+["Investor tanya: bagaimana potensi pasar bisnismu?","Jelaskan ukuran dan pertumbuhan pasar dengan data","“Pokoknya laku, percaya saja”","Pasar saya semua orang","Belum kepikiran"],
+["Investor tanya: dana akan dipakai untuk apa?","Rencana rinci: produk, tim, pemasaran","Belanja pribadi dulu","Belum tahu, yang penting cair","Dibagi rata ke teman"],
+["Investor tanya: apa keunggulanmu dibanding pesaing?","Diferensiasi jelas yang sulit ditiru","Tidak punya pesaing","Harga kami lebih murah saja","Pesaing pasti bangkrut"],
+["Apa itu pitch deck?","Presentasi ringkas untuk meyakinkan investor","Daftar harga produk","Kartu remi bisnis","Laporan pajak"],
+["Apa itu equity?","Kepemilikan saham dalam bisnis","Utang berbunga","Hadiah dari investor","Biaya operasional"],
+["Investor minta bukti traction. Apa itu?","Bukti pertumbuhan: pengguna, omzet, retensi","Ban kendaraan perusahaan","Jumlah likes teman","Rencana liburan tim"],
+["Valuasi startup adalah…","Perkiraan nilai bisnis saat ini","Gaji pendiri","Harga satu produk","Jumlah utang"],
+["Investor tanya: siapa tim di balik bisnis ini?","Tim lengkap dengan peran dan rekam jejak","Saya sendiri, tak butuh siapa-siapa","Masih cari-cari","Teman yang kebetulan lewat"]];
+const C=[
+["Omzet turun drastis! Langkah pertama?","Analisis penyebab lalu perbaiki strategi","Panik dan tutup toko","Salahkan pelanggan","Potong gaji semua tim"],
+["Pesaing besar masuk pasar!","Perkuat diferensiasi dan kedekatan pelanggan","Perang harga sampai rugi","Pura-pura tidak tahu","Jiplak mereka mentah-mentah"],
+["Kas hampir habis bulan ini!","Pangkas biaya tak perlu dan tagih piutang","Pinjam ke rentenir","Terus belanja","Sembunyikan dari tim"],
+["Anggota tim kunci mengundurkan diri!","Komunikasi, transfer ilmu, cari pengganti","Marah-marah","Tutup operasional","Biarkan kosong"],
+["Produkmu viral, tapi stok habis!","Atur ekspektasi dan percepat produksi","Menghilang dari pelanggan","Naikkan harga 10x","Batalkan semua pesanan"],
+["Ulasan buruk menyebar di internet!","Respon cepat, jujur, dan perbaiki layanan","Hapus semua komentar","Balas dengan emosi","Ganti nama toko"],
+["Tren pasar berubah mendadak!","Adaptasi dan uji model baru","Bertahan di cara lama","Menyalahkan zaman","Berhenti berinovasi"],
+["Supplier tiba-tiba menaikkan harga!","Cari alternatif dan negosiasi","Bayar tanpa nego","Kurangi kualitas diam-diam","Hentikan produksi"]];
+const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const mk=a=>{let d=[];return()=>{if(!d.length)d=shuf(a.slice());return d.pop()}};
+const Q={biz:mk(N),inv:mk(I),snk:mk(C)};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>'&#'+c.charCodeAt(0)+';');
+const xy=n=>{const r=Math.floor((n-1)/10);let c=(n-1)%10;if(r%2)c=9-c;return[(c+.5)*10,(9-r+.5)*10]};
+const board=$('#board'),box=$('#box'),modal=$('#modal'),toast=$('#toast');
+function buildBoard(){
+  let h='';
+  for(let n=1;n<=100;n++){
+    const r=Math.floor((n-1)/10);let c=(n-1)%10;if(r%2)c=9-c;
+    const cls=['t',(r+c)%2?'b':'',LAD[n]?'l':'',SNK[n]?'s':'',n==100?'e':''].join(' ');
+    const ic=n==1?'🏁':n==100?'🏰':LAD[n]?'💼':SNK[n]?'🐍':'';
+    h+=`<div class="${cls}" style="grid-row:${10-r};grid-column:${c+1}">${n}<i>${ic}</i></div>`;
+  }
+  let s='<svg class="ov" viewBox="0 0 100 100">';
+  for(const a in LAD){
+    const[x1,y1]=xy(+a),[x2,y2]=xy(LAD[a]),dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),px=-dy/L*1.4,py=dx/L*1.4;
+    for(let i=1;i<L/3.5;i++){const t=i*3.5/L,mx=x1+dx*t,my=y1+dy*t;s+=`<line class="rung" x1="${mx+px}" y1="${my+py}" x2="${mx-px}" y2="${my-py}"/>`}
+    s+=`<line class="rail" x1="${x1+px}" y1="${y1+py}" x2="${x2+px}" y2="${y2+py}"/><line class="rail" x1="${x1-px}" y1="${y1-py}" x2="${x2-px}" y2="${y2-py}"/>`;
+  }
+  const hues=[150,285,20,190,330,95,230,50];let k=0;
+  for(const a in SNK){
+    const[x1,y1]=xy(+a),[x2,y2]=xy(SNK[a]),dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),px=-dy/L*8,py=dx/L*8,hu=hues[k++%8];
+    const d=`M${x1} ${y1}C${x1+dx*.33+px} ${y1+dy*.33+py} ${x1+dx*.66-px} ${y1+dy*.66-py} ${x2} ${y2}`;
+    s+=`<path d="${d}" fill="none" stroke="hsl(${hu} 65% 38%)" stroke-width="2.4" stroke-linecap="round" opacity=".92"/><path d="${d}" fill="none" stroke="hsl(${hu} 80% 72%)" stroke-width=".8" stroke-dasharray="1 2.2" stroke-linecap="round"/><circle cx="${x1}" cy="${y1}" r="2.1" fill="hsl(${hu} 65% 38%)"/><circle cx="${x1-.8}" cy="${y1-.6}" r=".5" fill="#fff"/><circle cx="${x1+.8}" cy="${y1-.6}" r=".5" fill="#fff"/>`;
+  }
+  board.innerHTML=h+s+'</svg>';
+}
+new ResizeObserver(()=>{board.style.fontSize=board.clientWidth/60+'px'}).observe(board);
+
+let db,CODE='',ME='',HOST=false,ST=null,PL=[],ACT={},waiter=null,lastMs=0,lastKey='',lastDice=0,runId=0,tick=1000,TK={},subs=[];
+try{ME=localStorage.getItem('sf-id')||'';if(!ME){ME=Math.random().toString(36).slice(2,10);localStorage.setItem('sf-id',ME)}}catch(e){ME=Math.random().toString(36).slice(2,10)}
+const sref=()=>db.doc('state/'+CODE),pcol=()=>db.collection('players/'+CODE+'/m'),acol=()=>db.collection('acts/'+CODE+'/m');
+const show=h=>{box.className='';box.innerHTML=h;modal.classList.add('on')},hide=()=>modal.classList.remove('on');
+const clean=o=>JSON.parse(JSON.stringify(o)),find=id=>ST&&ST.pl.find(p=>p.id==id);
+const who=p=>p?`<div class="who"><span class="dot" style="--h:${p.h}"></span>${esc(p.n)}</div>`:'';
+const rank=()=>ST.pl.slice().sort((a,b)=>(a.f&&b.f)?a.f-b.f:a.f?-1:b.f?1:(b.p-a.p)||(a.t-b.t));
+const act=(k,a)=>acol().doc(ME).set({k,a}).catch(()=>{});
+const MT={biz:['💼 Pertanyaan Bisnis','Jawab benar → bisnismu berkembang dan kamu boleh lempar dadu!'],inv:['🪜 WAH! Kamu dapat investor nih!','Tapi sebelum dia investasi, yakinkan dulu lewat jawabanmu:'],snk:['🐍 Tantangan Bisnis!','Bertahan dari tantangan ini, atau terperosok turun ke bawah?']};
+
+function view(s){
+  ST=s;if(s.ph=='lobby')return;
+  const g={};
+  s.pl.forEach((p,i)=>{let el=TK[p.id];
+    if(!el){el=TK[p.id]=document.createElement('div');el.className='tok';el.innerHTML=`<i data-n="${esc(p.n)}">${i+1}</i>`;el.style.setProperty('--h',p.h);board.appendChild(el)}
+    el.classList.toggle('cur',p.id==s.cur);el.classList.toggle('me',p.id==ME);(g[p.p]=g[p.p]||[]).push(p)});
+  for(const k in g){
+    const a=g[k],n=a.length,cols=Math.ceil(Math.sqrt(n)),rows=Math.ceil(n/cols),sp=Math.min(2.4,6.5/cols),[x,y]=xy(+k);
+    a.forEach((p,i)=>{const e=TK[p.id];e.style.left=(x+(i%cols-(cols-1)/2)*sp)+'%';e.style.top=(y+(Math.floor(i/cols)-(rows-1)/2)*sp+1.5)+'%'});
+  }
+  const R=rank(),med=['🥇','🥈','🥉'],c=find(s.cur),me=find(ME);
+  $('#lb').innerHTML=R.map((p,i)=>`<li><span class="n">${med[i]||i+1}</span><span class="dot" style="--h:${p.h}"></span>${esc(p.n)}<em>${p.f?'🏰 selesai':'petak '+p.p}</em></li>`).join('');
+  $('#turn').innerHTML=(c?`<h3>🎯 Giliran sekarang</h3><b>${esc(c.n)}</b> <span style="color:var(--mut)">petak ${c.p}</span>`:'<h3>Siap-siap…</h3>')+(me?`<hr style="border:0;border-top:1px solid #5b3fb0"><span>Kamu: <b>${esc(me.n)}</b> · petak ${me.p} · peringkat ${R.indexOf(me)+1}</span>`:'');
+  if(s.msg&&s.ms!=lastMs){lastMs=s.ms;toast.textContent=s.msg;toast.className='on '+s.mt;setTimeout(()=>toast.className='',1700)}
+  modalView(s);
+}
+function modalView(s){
+  if(s.ph=='end'){if(lastKey!='end'){lastKey='end';const med=['🥇','🥈','🥉','4️⃣','5️⃣'];
+    show(`<h2>🏆 Para Juara Step Up Fest!</h2><ol class="pod">${rank().slice(0,5).map((p,i)=>`<li>${med[i]} <span class="dot" style="--h:${p.h}"></span> ${esc(p.n)} <small style="color:var(--mut)">${p.f?'sampai kastil':'petak '+p.p}</small></li>`).join('')}</ol>${HOST?'<button id="again">🔄 Room baru</button>':''}`);
+    if(HOST)$('#again').onclick=hostNew}return}
+  const mine=s.cur==ME,st=s.stg,c=find(s.cur);
+  if(!(HOST||mine)||!['q','rv','roll','dice'].includes(st)){hide();lastKey='';return}
+  modal.classList.add('on');
+  if(st=='q'||st=='rv'){
+    if(lastKey!='q'+s.seq){lastKey='q'+s.seq;buildQ(s,c,mine)}
+    if(st=='rv')mark(s.rv);
+  }else{
+    if(lastKey!='r'+s.seq){lastKey='r'+s.seq;
+      show(`${who(c)}<h2>✨ Bisnismu berkembang!</h2><div class="big" id="die">🎲</div><div id="ra">${mine?'<button id="rb">🎲 Lempar Dadu!</button>':'<p>Menunggu dadu dilempar…</p>'}</div>`);
+      const rb=$('#rb');if(rb)rb.onclick=()=>{rb.disabled=true;act(s.seq,1)}}
+    if(st=='dice'&&lastDice!=s.seq){lastDice=s.seq;spin(s.dv)}
+  }
+}
+async function spin(v){const f='⚀⚁⚂⚃⚄⚅';for(let i=0;i<8;i++){const d=$('#die');if(d)d.textContent=f[Math.random()*6|0];await sleep(90)}
+  const d=$('#die'),r=$('#ra');if(d)d.textContent=f[v-1];if(r)r.innerHTML=`<h2>Maju ${v} langkah!</h2>`}
+function buildQ(s,c,mine){
+  const m=MT[s.q.ty];
+  show(`${who(c)}<h2>${m[0]}</h2><p>${mine?m[1]:'Giliran '+esc(c.n)+' menjawab…'}</p><h3>${esc(s.q.t)}</h3><div class="opts"></div><div class="bar"><b></b></div>`);
+  box.className=s.q.ty;const w=box.querySelector('.opts');
+  s.q.o.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t;b.disabled=!mine;
+    b.onclick=()=>{w.querySelectorAll('button').forEach(x=>x.disabled=true);b.classList.add('sel');act(s.seq,i)};w.appendChild(b)});
+}
+function mark(rv){const bs=[...box.querySelectorAll('.opts button')];bs.forEach(b=>b.disabled=true);
+  if(bs[rv.c])bs[rv.c].classList.add('ok');if(rv.a!=rv.c&&bs[rv.a])bs[rv.a].classList.add('no');
+  const b=box.querySelector('.bar b');if(b)b.style.animationPlayState='paused'}
+
+function lobbyUI(){
+  if(!ST||ST.ph!='lobby')return;
+  if(!$('#lobby')){
+    show(HOST?`<div id="lobby"><h2>🏰 Room siap dimainkan</h2><p>Peserta buka link ini lalu isi nama, atau masukkan kode:</p><div class="big" style="font-size:4rem;letter-spacing:.2em">${CODE}</div><input id="lk" readonly value="${esc(location.origin+'/#'+CODE)}"><br><br><button class="g" id="cp">📋 Salin link</button> <button id="st">🚀 Mulai Game</button><h3>Pemain masuk: <span id="cnt"></span>/40</h3><div id="pl" class="chips"></div></div>`
+    :`<div id="lobby"><h2>✅ Kamu sudah masuk!</h2><p>Menunggu host memulai game…</p><h3>Pemain: <span id="cnt"></span></h3><div id="pl" class="chips"></div></div>`);
+    if(HOST){$('#st').onclick=startGame;$('#cp').onclick=()=>{try{navigator.clipboard.writeText($('#lk').value)}catch(e){$('#lk').select()}}}
+  }
+  $('#cnt').textContent=PL.length;$('#pl').innerHTML=PL.map(p=>`<span>${esc(p.n)}</span>`).join('');
+}
+const watchPlayers=()=>subs.push(pcol().onSnapshot(s=>{PL=s.docs.map(x=>({id:x.id,...x.data()})).sort((a,b)=>a.at-b.at);lobbyUI()}));
+
+/* ===== HOST ===== */
+const pub=async p=>{Object.assign(ST,p||{});view(ST);try{await sref().set(clean(ST))}catch(e){}};
+const say=async(msg,mt)=>{await pub({msg,mt,ms:ST.ms+1});await sleep(1800)};
+const waitAct=(uid,k,ms)=>new Promise(res=>{const a=ACT[uid];if(a&&a.k==k)return res(a.a);
+  const t=setTimeout(()=>{waiter=null;res(-1)},ms);waiter={uid,k,res:v=>{clearTimeout(t);waiter=null;res(v)}}});
+async function hostNew(){
+  CODE=Array.from({length:4},()=>'ABCDEFGHJKMNPQRSTUVWXYZ23456789'[Math.random()*31|0]).join('');
+  try{location.hash=CODE}catch(e){}
+  openRoom(true);
+}
+async function openRoom(fresh){
+  runId++;subs.forEach(f=>f());subs=[];Object.values(TK).forEach(e=>e.remove());TK={};ST=null;ACT={};PL=[];lastKey='';
+  let d=null;if(!fresh){try{const s=await sref().get();if(s.exists)d=s.data()}catch(e){}}
+  watchPlayers();
+  subs.push(acol().onSnapshot(s=>s.docs.forEach(x=>{const v=x.data();ACT[x.id]=v;if(waiter&&waiter.uid==x.id&&v.k==waiter.k)waiter.res(v.a)})));
+  if(d&&d.ph!='lobby'){ST=d;tick=1000+Math.max(0,...d.pl.map(p=>p.t));view(ST);if(d.ph=='play')loop();return}
+  ST={ph:'lobby',pl:[],cur:'',stg:'',q:null,seq:0,ms:0,msg:'',mt:'',dv:0,fin:0,rv:null};
+  try{await sref().set(clean(ST))}catch(e){}
+  lobbyUI();
+}
+async function startGame(){
+  if(!PL.length)return;
+  ST={...ST,ph:'play',pl:PL.slice(0,40).map((x,i)=>({id:x.id,n:x.n,h:(i*137.5)%360|0,p:1,f:0,t:i}))};
+  await pub({});loop();
+}
+async function ask(ty,p){
+  const[q,...o]=Q[ty](),opts=shuf(o.map((t,i)=>({t,ok:i==0}))),ci=opts.findIndex(x=>x.ok),seq=ST.seq+1;
+  await pub({stg:'q',seq,q:{ty,t:q,o:opts.map(x=>x.t)}});
+  const a=await waitAct(p.id,seq,20000);
+  await pub({stg:'rv',rv:{a,c:ci}});await sleep(1300);await pub({stg:''});return a==ci;
+}
+async function roll(p){
+  const seq=ST.seq+1;await pub({stg:'roll',seq});await waitAct(p.id,seq,15000);
+  const d=1+Math.random()*6|0;await pub({stg:'dice',dv:d});await sleep(2300);await pub({stg:''});return d;
+}
+async function step(p,l){for(const n of l){p.p=n;p.t=++tick;view(ST);await sleep(190)}await pub({})}
+async function jump(p,to){const sg=$('.stage');sg.classList.add('slow');p.p=to;p.t=++tick;await pub({});await sleep(1100);sg.classList.remove('slow')}
+async function win(p){p.f=++ST.fin;await pub({});await say(`🏰 ${p.n} sampai di Kastil Unicorn! Juara #${p.f}`,'good')}
+async function turn(p){
+  await pub({cur:p.id,stg:'',q:null,dv:0});await sleep(1000);
+  if(!await ask('biz',p)){await say(`📉 Bisnis ${p.n} seret… mundur 1 langkah`,'bad');if(p.p>1)await step(p,[p.p-1]);return}
+  const d=await roll(p),path=[];
+  for(let i=1;i<=d;i++){const n=p.p+i;path.push(n>100?200-n:n)}
+  await step(p,path);
+  if(p.p==100)return win(p);
+  if(LAD[p.p]){
+    if(await ask('inv',p)){await say(`💰 Investor setuju! ${p.n} naik tangga!`,'good');await jump(p,LAD[p.p]);if(p.p==100)return win(p)}
+    else await say('🙅 Investor batal menanam modal… tidak jadi naik','bad');
+  }else if(SNK[p.p]){
+    if(await ask('snk',p))await say(`🛡️ ${p.n} bertahan dari tantangan!`,'good');
+    else{await say(`🐍 Tantangan menang… ${p.n} meluncur turun!`,'bad');await jump(p,SNK[p.p])}
+  }
+}
+async function loop(){
+  const id=++runId;
+  while(ST.ph=='play'&&id==runId){
+    const L=ST.pl;if(ST.fin>=5||ST.fin>=L.length){await pub({ph:'end',stg:''});return}
+    let i=L.findIndex(p=>p.id==ST.cur);do{i=(i+1)%L.length}while(L[i].f);
+    await turn(L[i]);
+  }
+}
+$('#bEnd').onclick=()=>{if(ST&&ST.ph=='play'){runId++;if(waiter)waiter.res(-1);pub({ph:'end',stg:''})}};
+$('#bReset').onclick=()=>{if(confirm('Buat room baru? Game saat ini akan ditinggalkan.'))hostNew()};
+$('#bSkip').onclick=()=>{if(waiter)waiter.res(-1)};
+
+/* ===== PLAYER ===== */
+function gatePlayer(hc){
+  let nm='';try{nm=localStorage.getItem('sf-nm')||''}catch(e){}
+  show(`<h2>🏰 Gabung Step Up Fest</h2><p>Masukkan kode room dan namamu.</p><input id="cd" maxlength="4" placeholder="KODE" value="${esc(hc)}" style="text-transform:uppercase;text-align:center;font-size:1.6rem;letter-spacing:.2em"><br><br><input id="nm" maxlength="20" placeholder="Nama kamu" value="${esc(nm)}"><br><br><button id="jn">🚀 Gabung</button><p id="er" style="color:var(--no)"></p>`);
+  $('#jn').onclick=async()=>{
+    const c=$('#cd').value.trim().toUpperCase(),n=$('#nm').value.trim();
+    if(c.length!=4||!n){$('#er').textContent='Isi kode 4 huruf dan namamu dulu.';return}
+    CODE=c;try{localStorage.setItem('sf-nm',n)}catch(e){}
+    try{await pcol().doc(ME).set({n,at:Date.now()})}catch(e){$('#er').textContent='Gagal masuk. Cek koneksi internetmu lalu coba lagi.';return}
+    $('.stage').classList.add('slow');watchPlayers();
+    subs.push(sref().onSnapshot(s=>{
+      if(!s.exists){ST=null;show(`<h2>Room ${CODE} belum dibuka</h2><p>Menunggu host…</p>`);return}
+      const d=s.data();if(d.ph=='lobby'){ST=d;lobbyUI()}else view(d);
+    }));
+  };
+}
+function makeDb(){
+  let ws,open=false,q=[],subsM={},n=0,pend={},key='';
+  const sendNow=o=>{const m=JSON.stringify(o);open?ws.send(m):q.push(m)};
+  const conn=()=>{
+    ws=new WebSocket((location.protocol=='https:'?'wss://':'ws://')+location.host+'/ws');
+    ws.onopen=()=>{open=true;if(key)ws.send(JSON.stringify({t:'auth',key}));for(const s in subsM)ws.send(subsM[s].msg);q.splice(0).forEach(m=>ws.send(m))};
+    ws.onclose=()=>{open=false;setTimeout(conn,1500)};
+    ws.onmessage=e=>{const m=JSON.parse(e.data);
+      if(m.t=='snap'){const s=subsM[m.sid];if(s)s.cb(m)}
+      else if(m.id&&pend[m.id]){pend[m.id](m);delete pend[m.id]}};
+  };
+  conn();
+  const call=o=>new Promise(r=>{o.id=++n;pend[o.id]=r;sendNow(o)});
+  const sub=(o,cb)=>{const sid=++n;subsM[sid]={msg:JSON.stringify({t:'sub',sid,...o}),cb};if(open)ws.send(subsM[sid].msg);return()=>{delete subsM[sid];sendNow({t:'unsub',sid})}};
+  const snapDoc=d=>({exists:d!=null,data:()=>d});
+  const docRef=p=>({
+    get:async()=>snapDoc((await call({t:'get',path:p})).data),
+    set:async d=>{const r=await call({t:'set',path:p,data:d});if(r.err)throw new Error(r.err)},
+    onSnapshot:cb=>sub({path:p},m=>cb(snapDoc(m.doc)))});
+  const colRef=p=>({doc:id=>docRef(p+'/'+id),
+    onSnapshot:cb=>sub({path:p,col:1},m=>cb({docs:m.docs.map(([id,d])=>({id,data:()=>d}))}))});
+  return{doc:docRef,collection:colRef,auth:async k=>{key=k;return !!(await call({t:'auth',key:k})).ok}};
+}
+(async()=>{
+  db=makeDb();
+  const isHostPath=/\/host\/?$/.test(location.pathname)||/[?&]host/.test(location.search);
+  if(isHostPath){
+    let k='';try{k=localStorage.getItem('sf-hk')||''}catch(e){}
+    if(!k)k=prompt('Masukkan kunci host:')||'';
+    HOST=await db.auth(k);
+    try{HOST?localStorage.setItem('sf-hk',k):localStorage.removeItem('sf-hk')}catch(e){}
+    if(!HOST)return show('<h2>🔑 Kunci host salah</h2><p>Muat ulang halaman lalu masukkan kunci yang benar.</p>');
+  }
+  document.body.classList.toggle('isplayer',!HOST);
+  const hc=(location.hash||'').slice(1).toUpperCase().slice(0,4);
+  if(HOST){if(hc.length==4){CODE=hc;openRoom(false)}else{show('<h2>🏰 Step Up Fest</h2><p>Kamu host. Buat room, lalu bagikan kode ke peserta.</p><button id="nr">➕ Buat Room Baru</button>');$('#nr').onclick=hostNew}}
+  else gatePlayer(hc);
+})();
+</script>
+</body>
+</html>
